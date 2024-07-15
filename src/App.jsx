@@ -1,14 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 
 function App() {
+  const [count, setCount] = useState(0);
+  const increment = () => {
+    setCount(count - 1);
+  };
   return (
     <>
-      <div>App bhrbghebro uhbibwob </div>
-      <h1>avv</h1>
-      <section>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus,
-        aspernatur. Ipsa illum facere alias earum.
-      </section>
+      <h1>this is counter value :----- {count}</h1>
+      <button onClick={() => increment()}>increment count</button>
     </>
   );
 }
