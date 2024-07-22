@@ -1,12 +1,32 @@
-import React, { useState } from "react";
-
+import React, { useEffect, useState } from "react";
+import Hello, { Demo } from "./component/Hello";
+import axios from "axios";
 
 function App() {
-  const age = 20;
+  const [post, setPost] = useState([]);
+  const [error, setError] = useState("");
+  const fetchData = async () => {
+    try {
+      const res = await axios.get("https://jsonplaceholder.typicode.com/posts");
+      setPost(res.data);
+    } catch (error) {
+      setError(error.message);
+    }
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
   return (
     <>
-      <h1>this is app jsx </h1>
-      {age > 18 ? "you are eligible to vote" : "you r not eligible to vote"}
+      {error ? (
+        <p>{error}</p>
+      ) : (
+        <>
+          {post.map((ele) => (
+            <h1>{ele.title}</h1>
+          ))}
+        </>
+      )}
     </>
   );
 }

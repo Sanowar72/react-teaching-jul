@@ -14,5 +14,13 @@ const Hello = () => {
     </div>
   );
 };
+const Demo = () => {
+  return (
+    <>
+      <h3>hiii</h3>
+    </>
+  );
+};
 
 export default Hello;
+export { Demo };
