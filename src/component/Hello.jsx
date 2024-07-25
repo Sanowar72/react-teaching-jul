@@ -2,7 +2,7 @@ import React from "react";
 
 const Hello = () => {
   return (
-    <div>
+    <div className="container">
       <h1>Lorem ipsum Mollitia, ullam.</h1>
       <h3>
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus id

@@ -1,12 +1,13 @@
 import React from "react";
+import stylesSheet from "../app.module.css";
 
-const Name = ({ name, age, fatherName, email }) => {
+const Name = () => {
   return (
-    <div>
-      <h1>your name is : {name}</h1>
-      <h3>your age is : {age}</h3>
-      <h1>father name is :{fatherName?.toUpperCase() || "no data provided"}</h1>
-      <h2>ypur email is : {email}</h2>
+    <div className={`${stylesSheet.container} ${stylesSheet.name} `}>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis
+      culpa quod quam reiciendis nemo doloribus beatae perferendis explicabo
+      alias deleniti, rerum iure exercitationem ab necessitatibus, sint dolorum
+      corporis, inventore magni.
     </div>
   );
 };
