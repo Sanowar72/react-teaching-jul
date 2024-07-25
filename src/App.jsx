@@ -1,11 +1,9 @@
 import React from "react";
-import Hello from "./component/Hello";
-import Name from "./component/Name";
+import Form from "./component/form/Form";
 const App = () => {
   return (
     <>
-      <Name />
-      <Hello />
+      <Form />
     </>
   );
 };
