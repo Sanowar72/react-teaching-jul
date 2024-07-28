@@ -2,14 +2,8 @@ import axios from "axios";
 import React, { useState } from "react";
 
 const UserForm = () => {
-  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [age, setAge] = useState("");
-
-  const handleNameChange = (e) => {
-    setName(e.target.value);
-  };
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -17,10 +11,6 @@ const UserForm = () => {
 
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
-  };
-
-  const handleAgeChange = (e) => {
-    setAge(e.target.value);
   };
 
   const handleSubmit = async (e) => {
@@ -31,9 +21,11 @@ const UserForm = () => {
     };
     const url = "https://expresswithmongo.onrender.com/api/auth/signin";
     try {
-      const res = await axios.post(url, payload);
+      const res = await axios.post(url, payload, { withCredentials: true });
       console.log(res);
-    } catch (error) {}
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
