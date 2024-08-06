@@ -4,47 +4,91 @@ import React, { useState } from "react";
 const UserForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
+  const userObj = {
+    name: "",
+    email: "",
+    address: "",
+    street: "",
+    password: "",
+    joke: "",
   };
+  const [userData, setUserData] = useState(userObj);
 
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
+  const handleOnchange = (e) => {
+    const { name, value } = e.target;
+    setUserData((pre) => ({ ...pre, [name]: value }));
   };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const payload = {
-      email: email,
-      password: password,
-    };
-    const url = "https://expresswithmongo.onrender.com/api/auth/signin";
-    try {
-      const res = await axios.post(url, payload, { withCredentials: true });
-      console.log(res);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  console.log(userData);
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   const payload = {
+  //     email: email,
+  //     password: password,
+  //   };
+  //   console.log("this is payload....", payload);
+  //   const url = "https://expresswithmongo.onrender.com/api/auth/signin";
+  //   try {
+  //     const res = await axios.post(url, payload, { withCredentials: true });
+  //     // console.log(res);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleOnchange}>
       <div>Email</div>
       <input
-        value={email}
+        value={userData.email}
+        name="email"
         type="email"
         placeholder="Please enter your email"
-        onChange={handleEmailChange}
+        onChange={handleOnchange}
         required
       />
-
+      <div>Name</div>
+      <input
+        value={userData.name.toUpperCase()}
+        name="name"
+        type="text"
+        placeholder="Please enter your email"
+        onChange={handleOnchange}
+        required
+      />
+      <div>Address</div>
+      <input
+        value={userData.address}
+        name="address"
+        type="text"
+        placeholder="Please enter your email"
+        onChange={handleOnchange}
+        required
+      />
+      <div>joke</div>
+      <input
+        value={userData.joke}
+        name="joke"
+        type="text"
+        placeholder="Please enter your email"
+        onChange={handleOnchange}
+        required
+      />
+      <div>Street</div>
+      <input
+        value={userData.street}
+        name="street"
+        type="text"
+        placeholder="Please enter your email"
+        onChange={handleOnchange}
+        required
+      />
       <div>Password</div>
       <input
-        value={password}
+        value={userData.password}
+        name="password"
         type="password"
         placeholder="Please enter your password"
-        onChange={handlePasswordChange}
+        onChange={handleOnchange}
         required
       />
 
