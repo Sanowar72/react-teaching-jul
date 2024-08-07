@@ -1,99 +1,52 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const UserForm = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const userObj = {
-    name: "",
-    email: "",
-    address: "",
-    street: "",
-    password: "",
-    joke: "",
+  const [filter, setFilter] = useState("");
+  const [userData, setUserData] = useState([]);
+  const handleOnChange = (e) => {
+    setFilter(e.target.value);
   };
-  const [userData, setUserData] = useState(userObj);
-
-  const handleOnchange = (e) => {
-    const { name, value } = e.target;
-    setUserData((pre) => ({ ...pre, [name]: value }));
+  const getData = async () => {
+    try {
+      const res = await axios.get("https://jsonplaceholder.typicode.com/posts");
+      setUserData(res.data);
+    } catch (error) {
+      console.log(error);
+    }
   };
-  console.log(userData);
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   const payload = {
-  //     email: email,
-  //     password: password,
-  //   };
-  //   console.log("this is payload....", payload);
-  //   const url = "https://expresswithmongo.onrender.com/api/auth/signin";
-  //   try {
-  //     const res = await axios.post(url, payload, { withCredentials: true });
-  //     // console.log(res);
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
+  const filterValue = () => {
+    const filteredData = userData.filter((item) => {
+      return item.title.toLowerCase().includes(filter.toLowerCase());
+    });
+    return filteredData;
+  };
 
+  const filteredData = filter ? filterValue() : userData;
+
+  useEffect(() => {
+    getData();
+  }, []);
   return (
-    <form onSubmit={handleOnchange}>
-      <div>Email</div>
-      <input
-        value={userData.email}
-        name="email"
-        type="email"
-        placeholder="Please enter your email"
-        onChange={handleOnchange}
-        required
-      />
-      <div>Name</div>
-      <input
-        value={userData.name.toUpperCase()}
-        name="name"
-        type="text"
-        placeholder="Please enter your email"
-        onChange={handleOnchange}
-        required
-      />
-      <div>Address</div>
-      <input
-        value={userData.address}
-        name="address"
-        type="text"
-        placeholder="Please enter your email"
-        onChange={handleOnchange}
-        required
-      />
-      <div>joke</div>
-      <input
-        value={userData.joke}
-        name="joke"
-        type="text"
-        placeholder="Please enter your email"
-        onChange={handleOnchange}
-        required
-      />
-      <div>Street</div>
-      <input
-        value={userData.street}
-        name="street"
-        type="text"
-        placeholder="Please enter your email"
-        onChange={handleOnchange}
-        required
-      />
-      <div>Password</div>
-      <input
-        value={userData.password}
-        name="password"
-        type="password"
-        placeholder="Please enter your password"
-        onChange={handleOnchange}
-        required
-      />
-
-      <button type="submit">Submit</button>
-    </form>
+    <>
+      <form onSubmit={handleOnChange}>
+        <div>please search</div>
+        <input
+          value={filter}
+          name="email"
+          type="text"
+          placeholder="Please enter your search"
+          onChange={handleOnChange}
+        />
+      </form>
+      <div>
+        {filteredData?.map((ele) => (
+          <>
+            <h1>{ele?.title}</h1>
+          </>
+        ))}
+      </div>
+    </>
   );
 };
 
