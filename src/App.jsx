@@ -1,14 +1,26 @@
-import React, { useState } from "react";
-import Home from "./component/Home";
-import About from "./component/About";
+import React, {
+  createContext,
+  useEffect,
+  useLayoutEffect,
+  useState,
+} from "react";
+import ComponentA from "./component/ComponentA";
+
+export const NameContext = createContext(null);
 
 const App = () => {
-  const [pages, setPages] = useState("home");
+  // const myobj = {
+  //   name: "sonu",
+  //   rollNo: 12,
+  //   email: "bhbonefn",
+  //   address: [1, 2, 3, 5, 6, 7, 8, 9],
+  // };
+  const [count, setCount] = useState(0);
   return (
     <>
-      {pages === "home" ? <Home /> : <About />}
-      <button onClick={() => setPages("home")}>see home</button>
-      <button onClick={() => setPages("about")}>see about</button>
+      <NameContext.Provider value={{ count, setCount }}>
+        <ComponentA />
+      </NameContext.Provider>
     </>
   );
 };
