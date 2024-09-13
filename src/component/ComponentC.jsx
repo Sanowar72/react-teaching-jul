@@ -1,9 +1,9 @@
-import React, { useContext } from "react";
-import { NameContext } from "../App";
+import React from "react";
+import { useGlobalContext } from "../App";
 
 const ComponentC = () => {
-  const name = useContext(NameContext);
-  console.log("this is name value,,,,", name);
+  const name = useGlobalContext();
+  console.log("first", JSON.stringify(name, null, 2));
 
   return (
     <>
