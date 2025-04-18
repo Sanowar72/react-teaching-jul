@@ -2,71 +2,30 @@ body {
   margin: 0;
   padding: 0;
 }
-.hero {
+.container {
   display: flex;
-  /* align-items: center; */
-  height: 90vh;
-  background-color: aqua;
 }
-.hero__container {
-  flex: 70%;
-  flex-grow: grow;
-}
-.aside__container {
+.sidebar {
   flex: 30%;
-  background-color: #f0f0f0;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
+  /* background-color: azure; */
+  border: 1px solid red;
+  height: 70vh;
 }
-.dialer__container {
-  position: fixed;
-  bottom: 20px;
-  background-color: black;
-  color: white;
-  padding: 10px;
-  left: 50%;
-  transform: translateX(-50%);
+.main-page {
+  flex: 60%;
+  /* background-color: aqua; */
+  border: 1px solid red;
+  height: 70vh;
 }
-
-footer {
-  height: 500px;
-}
-
-.caurosel-container {
-  width: 100%;
-  max-width: 600px;
-  margin: 60px auto;
-  position: relative;
-  overflow: hidden;
-  /* border-radius: 10px; */
-}
-.caurosel-item {
-  width: 100%;
-  max-width: 600px;
-  border: 2px solid black;
-  height: auto;
-  overflow: hidden;
-  position: relative;
-  flex: 0 0 100%;
-  width: 100%;
-  scroll-behavior: smooth;
-  transition: transform 0.3s ease;
-}
-.caurosel {
+.name-container {
   display: flex;
-  overflow: hidden;
-  scroll-behavior: smooth;
+  flex-wrap: wrap;
 }
-.dot {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: wheat;
-  margin-right: 10px;
+.name {
+  padding: 5px 10px;
   border: 1px solid black;
+  margin: 5px;
 }
-.selected-image {
-  background-color: blue;
+.active {
+  color: blue;
 }
