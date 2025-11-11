@@ -1,11 +1,12 @@
 import React from "react";
-import Jupiter from "./jupiter/Jupiter";
+import HyperBots from "./hyperbots/HyperBots";
+import OtpInputBox from "./machineRoundCoding/OtpInputBox";
 
 const App = () => {
   return (
-    <div>
-      <Jupiter />
-    </div>
+    <>
+      <OtpInputBox />
+    </>
   );
 };
 
