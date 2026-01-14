@@ -54,7 +54,6 @@ const ProgressBar = () => {
     if (seconds >= 100) pause();
   }, [seconds]);
 
-  
   const getPrimaryButton = () => {
     if (seconds === 0) return { label: "Start", action: start };
     if (isRunning) return { label: "Stop", action: pause };
