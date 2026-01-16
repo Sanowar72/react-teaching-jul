@@ -43,3 +43,26 @@
   width: 400px;
   overflow: scroll;
 }
+
+.products {
+  border: 1px solid black;
+  width: 250px;
+  padding-inline: 10px;
+}
+.products-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+.page {
+  display: inline-block;
+  padding: 2px 4px;
+  border: 1px solid black;
+  margin: 5px;
+  cursor: pointer;
+}
+.selected-page-no {
+  background-color: aqua;
+}
