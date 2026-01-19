@@ -4,6 +4,7 @@ import OtpInputBox from "./machineRoundCoding/OtpInputBox";
 import ProgressBar from "./machineRoundCoding/ProgressBar";
 import GoogleSearchBar from "./machineRoundCoding/GoogleSearchBar";
 import Pagination from "./machineRoundCoding/Pagination";
+import InfiniteScroll from "./machineRoundCoding/InfiniteScroll";
 
 const App = () => {
   return (
@@ -11,7 +12,8 @@ const App = () => {
       {/* <OtpInputBox /> */}
       {/* <ProgressBar /> */}
       {/* <GoogleSearchBar /> */}
-      <Pagination />
+      {/* <Pagination /> */}
+      <InfiniteScroll />
     </>
   );
 };
